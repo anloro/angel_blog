@@ -1,0 +1,58 @@
+---
+layout: "post"
+---
+<html>
+
+<style>
+div {text-align:justify}
+.inline {
+    border: black;
+    position: relative;
+    width: auto;
+    display: table-cell;
+}
+.inline td {
+    padding-right: 18px;  
+    padding-left: 0%;  
+    text-align: left;
+    background-color:#FFF;
+    border: black;
+}
+.matrix {
+    position: relative;
+    border: white;
+    width: auto;
+    display: table-cell;
+}
+.matrix:before, .matrix:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    border: 1px solid #000;
+    width: 6px;
+    height: 100%;
+}
+.matrix:before {
+    left: -6px;
+    border-right: 0px;
+}
+.matrix:after {
+    right: -6px;
+    border-left: 0px;
+}
+.matrix td {
+    padding: 5px;    
+    text-align: center;
+    background-color:#FFF;
+    border: white;
+}
+
+</style>
+
+<div>
+{{  content  }}
+</div>
+
+<!--- Special characters: 𝜖 𝚿 𝜓 𝜀 ∀ ≠ ℝ Ω → --->
+<!--- Combining characters: ̃   ̂  ̇   --->
+</html>
