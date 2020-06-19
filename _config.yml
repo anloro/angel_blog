@@ -23,7 +23,7 @@ email: anlorogel@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Personal blog for resuming my notes in the study of robotics and mechatronics.
 
-baseurl: "angel_blog" # the subpath of your site, e.g. /blog
+baseurl: "/angel_blog" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
