@@ -57,12 +57,53 @@ div {text-align:justify}
 .d {
     text-align: center;
 }
+
+span {
+    height: 50px;
+    line-height: 50px;
+}
+
+summatory {
+    position: relative;
+    font-size: 2.3em;
+    display: inline-block;
+    line-height: .7em;
+    vertical-align: middle;
+}
+
+summatory:before {
+    font-size: 12px;
+    display: block;
+    position: relative;
+    content: "" attr(idb) "";
+    text-align: center;
+    line-height: 1.7em;
+}
+
+summatory:after {
+    font-size: 12px;
+    display: block;
+    position: relative;
+    content: "" attr(id) "";
+    text-align: center;
+    line-height: 1.2em;
+}
+
+blockquote {
+    border-style:solid;
+    border-width:1px 0 1px 20px;
+    border-image:url(http://opbokken.nu/meuk/curly.png) 1 20 stretch;
+    padding-left:0.5em;
+}
+span{
+    line-height: 1.2em;
+}
 </style>
 
 <div>
 {{  content  }}
 </div>
 
-<!--- Special characters: θ 𝜖 ℝ 𝚿 𝜓 𝜀 ∀ ≠ Ω → λ ⋀ 𝛼 τ ɪ --->
+<!--- Special characters: θ 𝜖 ℝ 𝚿 𝜓 𝜀 ∀ ≠ Ω → λ ⋀ 𝛼 τ ɪ *x̂* --->
 <!--- Combining characters: ̃   ̂  ̇   --->
 </html>
