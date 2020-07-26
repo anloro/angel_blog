@@ -26,6 +26,25 @@ We can divide random variables in 2 groups:
 
 **Continuous**: The output pertains to the real numbers. Taken the example of the class a possible continuous random variable would be the height of the students.
 
+## Quick review on moments
+A moment is a specific quatitative measure of the shape of a function. This concept it is both used in mechanics and in statistics. If the function is a probability distribution the **moment of order n** of a random variable is defined by:
+
+| E[x<sup>n</sup>] = <span style= "font-size:20px;">&#8747;</span><sub style= "font-size:10px;">x=-&infin;</sub> <sup style= "font-size:10px; position: relative; bottom: 10px; right: 20px;">&infin;</sup>  x<sup>n</sup> p(x) dx
+
+Note: The notation should be <u>x</u> for the random variable, but if there is no ambiguity the underscore is omited.
+
+The zero order moment is the total probability, the first order is the expected value or mean value and is often denoted by <span>&mu;<sub>x</sub> or by &mu;</span> for simplicity.
+
+The **central moments** are defined by: 
+
+| E[(x - <span>&mu;</span>)<sup>n</sup>] = <span style= "font-size:20px;">&#8747;</span><sub style= "font-size:10px;">x=-&infin;</sub> <sup style= "font-size:10px; position: relative; bottom: 10px; right: 20px;">&infin;</sup>  (x - <span>&mu;</span>)<sup>n</sup> p(x) dx
+
+The first order central moment is 0 and the second order central moment is the **variance** <span>&sigma;</span><sup>2</sup> and it can be extended as Var[x] = E[(x - <span>&mu;</span>)<sup>2</sup>] = E[x<sup>2</sup>] - <span>&mu;</span><sup>2</sup>. The **standard deviation** is defined as <span>&sigma;</span><sub>x</sub> = sqrt(Var[x]). It can also be defined the **standarized moments** by dividing by the n order variance.
+
+| <span>&mu;<sub>n</sub>/&sigma;<sup>n</sup> = E[(x - &mu;)<sup>n</sup>]/&sigma;<sup>n</sup></span>
+
+The third standarized moment is the [skewness](https://en.wikipedia.org/wiki/Skewness) and the fourth one is the [kurtosis](https://en.wikipedia.org/wiki/Kurtosis).
+
 ## Probability distributions
 A probability distribution is the mathematical function that gives the probabilities of different possible outcomes for an experiment. It has a sample space <span>&Omega;</span> as its input, and gives a probability as its output. 
 
@@ -70,6 +89,97 @@ Note: PDF only exists for continuous random variables but, the CDF exists for al
 
 Given a random variable <u>x</u> and an independent variable x, the distribution function F<sub><u>x</u></sub>(x)
 
+## Clasical probability distributions
+### Discrete distributions
+#### Poisson distribution
+The Poisson distribution expresses the probability of a given number of events ocurring in a fixed interval of time or space if the mean rate is known. The discrete random variable <u>n</u> will follow the distribution:
+
+<table class="inline">
+<td>
+P(<u>n</u> = n) =
+</td>
+<td>
+<div class="n">&lambda;<sup>n</sup> exp(-&lambda;)</div><div class="d">n!</div>
+</td>
+</table>
+
+Where <span>&lambda;</span> is a parameter of the distribution and represents the expected number of events (the mean), E[n] = <span>&lambda;</span>. A special characteristic of the Poisson distribution is that the mean and the variance are equal: Var[n] = E[n] = <span>&lambda;</span>.
+
+#### Binomial distribution
+The binomial distribution gives the probability of the successes of n independen experiments which outputs are yes or no. The probability of the positive outcome is denoted by P (and the negative 1-P) and the total number of times the experiment is repeated (the total number of outcomes) is denoted by N. The probability of discrete random variable <u>n</u> is:
+
+<table class="inline">
+<td>
+P(<u>n</u> = n) =
+</td>
+<td>
+<div class="n">N!</div><div class="d">n! (N - n)!</div>
+</td>
+<td>
+P<sup>n</sup> (1 - P)<sup>N-n</sup> 
+</td>
+</table>
+
+The expectation of <u>n</u> is E[<u>n</u>] = NP and its variance Var[<u>n</u>] = NP(1-P).
+
+### Continous distributions
+#### Normal distribution 
+The normal distribution is the one which the probability function is denoted by a gaussian:
+
+<table class="inline">
+<td>
+p(x) =
+</td>
+<td>
+<div class="n">1</div><div class="d">&sigma; sqrt(2&pi;)</div>
+</td>
+<td>
+exp(
+</td>
+<td>
+<div class="n">-(x - &mu;)<sup>2</sup></div><div class="d">2 &sigma;<sup>2</sup></div>
+</td>
+<td>
+)
+</td>
+</table>
+
+This probability function is very famous, partly due to the **central limit theorem** in probability theory, which states that under some conditions the average of many samples of a random variable with finite mean and variance is itself a random variable whose distribution converges to a normal distribution as the number of samples increases. Therefore physical quantities that are expected to be the sum of many independent processes are described by this distribution, i.e the noise of a system or the measurement errors.
+
+The parameters of this distribution are <span>&sigma;<sup>2</sup> and &mu;</span>, which are the variance and the expectation
+
+#### Chi-square distribution
+A random variable y is said to be <span>&chi;<sub>n</sub><sup>2</sup></span> distributed (Chi-square distributed with n degrees of freedom) if its density function is:
+
+<table class="inline">
+<td>
+p(y) = 
+</td>
+<td>
+    <blockquote>
+    <table class="inline">
+        <tr>
+            <td>
+                <div class="n">1</div><div class="d">2<sup>n/2</sup>&Gamma;(n/2)</div>
+            </td>
+            <td>
+                <sup style= "position: relative; right: 15px; bottom: 15px;">y <sup>n/2-1</sup> e <sup>y/2</sup></sup>
+            </td>
+            <td>
+                y &ge; 0
+            </td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>elsewhere</td>
+        </tr>
+    </table>
+    </blockquote>
+</td>
+</table>
+
+Where <span>&Gamma;</span>() is the gamma function, and the expectation and variance of a Chi-square distributed random variable is E[y] = n and Var[y] = 2n. This is the distribution of a sum of the squares of n independent standard normal (normal distributed with <span>&mu; = 0 and &sigma; = 1</span>) random variables. This distribution is widely used in inferential statistics, in [hypothesis testing](https://en.wikipedia.org/wiki/Statistical_hypothesis_testing) and in the construction of [confidence intervals](https://en.wikipedia.org/wiki/Confidence_interval).
+
 ## Bayesian interpretation of probability
 There are different interpretations of probability depending in which branch of statistics you are (objectivism or subjectivism). For this post and for the ones that follow we will consider the Bayessian interpretation of probability, which it is part of the subjectivist interpretation. 
 
@@ -86,4 +196,8 @@ Bayesian methodology starts by setting what is called a "prior distribution" tha
 * https://en.wikipedia.org/wiki/Bayesian_probability  
 * https://www.stat.auckland.ac.nz/~brewer/stats331.pdf  
 * https://egertonconsulting.com/a-comparison-of-classical-and-bayesian-statistics  
-* https://en.wikipedia.org/wiki/Probability_distribution
+* https://en.wikipedia.org/wiki/Probability_distribution  
+* https://en.wikipedia.org/wiki/Normal_distribution  
+* https://en.wikipedia.org/wiki/Binomial_distribution  
+* https://en.wikipedia.org/wiki/Chi-square_distribution  
+* https://en.wikipedia.org/wiki/Poisson_distribution  
