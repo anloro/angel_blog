@@ -33,7 +33,7 @@ In this post we will review the basics of probability theory that will be needed
         1. Continuous case (PDF)
         1. Joint distribution for independent variables
     1. Conditional probability definition
-    1. Joint moments
+    1. Joint moments/ Second order moments
         
 1. [Bayesian interpretation of probability](#bayesian-interpretation-of-probability)
 
@@ -253,26 +253,26 @@ Using the previous definitions it can be defined the conditional probability as:
 
 Where P(A<span>&cap;</span>B) is the joint distribution. The definition by itself is what is known by the Kolmogorov definition and is independent of any statistics branch. Isolating one of the right-hand side elements or taking it as an axiom of probability is then part of the Bayesian interpretation.
 
-### Joint Moments
-The **joint moments** m<sub>ij</sub> of two random variables <u>x</u> <u>y</u> are defined by the expectation of the functions <u>x</u><sup>i</sup> <u>y</u><sup>j</sup>:
+### Joint Moments/ Second order moments
+The **joint moments** M<sub>ij</sub> of two random variables <u>x</u> <u>y</u> are defined by the expectation of the functions <u>x</u><sup>i</sup> <u>y</u><sup>j</sup>:
 
-| m<sub>ij</sub> = E[<u>x</u><sup>i</sup> <u>y</u><sup>j</sup>] = <span style= "font-size:20px;">&#8747;</span><sub style= "font-size:10px;">x=-&infin;</sub> <sup style= "font-size:10px; position: relative; bottom: 10px; right: 20px;">&infin;</sup><span style= "font-size:20px;">&#8747;</span><sub style= "font-size:10px;">y=-&infin;</sub> <sup style= "font-size:10px; position: relative; bottom: 10px; right: 20px;">&infin;</sup>x<sup>i</sup> y<sup>j</sup> p(x,y) dxdy
+| M<sub>ij</sub> = E[<u>x</u><sup>i</sup> <u>y</u><sup>j</sup>] = <span style= "font-size:20px;">&#8747;</span><sub style= "font-size:10px;">x=-&infin;</sub> <sup style= "font-size:10px; position: relative; bottom: 10px; right: 20px;">&infin;</sup><span style= "font-size:20px;">&#8747;</span><sub style= "font-size:10px;">y=-&infin;</sub> <sup style= "font-size:10px; position: relative; bottom: 10px; right: 20px;">&infin;</sup>x<sup>i</sup> y<sup>j</sup> p(x,y) dxdy
 
-Where i+j denotes the order of the moments. We have that m<sub>00</sub> = 1, m<sub>10</sub> = E[x] = <span>&mu;</span><sub>x</sub> and m<sub>01</sub> = E[y] = <span>&mu;</span><sub>y</sub>. The **joint central moments** <span>&mu;</span><sub>ij</sub> are defined by:
+Where i+j denotes the order of the moments. We have that M<sub>00</sub> = 1, M<sub>10</sub> = E[x] = <span>&mu;</span><sub>x</sub> and M<sub>01</sub> = E[y] = <span>&mu;</span><sub>y</sub>. The **joint central moments** <span>&mu;</span><sub>ij</sub> are defined by:
 
 | <span>&mu;</span><sub>ij</sub> = E[(x - <span>&mu;</span><sub>x</sub>)<sup>i</sup>(y - <span>&mu;</span><sub>y</sub>)<sup>j</sup>]
 
 From this definition we can distinguish that <span>&mu;</span><sub>20</sub> = Var[x] and <span>&mu;</span><sub>02</sub> = Var[y]. A very well known joint standard moment is the <span>&mu;</span><sub>11</sub>, which is called the covariance.
 
 #### Covariance
-The **covariance** is a measure that gives the linear relationship of different random variables in a probability space, it may not be relevant for nonlinear random variables. It is denoted by Cov(x,y) or <span>&sigma;</span><sub>xy</sub> and it is defined as:
+The **covariance** is a measure that gives the linear relationship of different random variables in a probability space, it may not be relevant for nonlinear random variables. It meassures how much a signal covariates with another signal around the mean of each signal (the mean value has no influence in this meassure). It is denoted by Cov(x,y) or <span>&sigma;</span><sub>xy</sub> and it is defined as:
 
-| Cov(<u>x</u>,<u>y</u>) = <span>&mu;</span><sub>11</sub>  = m<sub>11</sub> - m<sub>10</sub> m<sub>01</sub>
+| Cov(<u>x</u>,<u>y</u>) = <span>&mu;</span><sub>11</sub>  = M<sub>11</sub> - M<sub>10</sub> M<sub>01</sub>
 
 If two random variables are incorrelated then their covariance is 0. Two independent variables are always uncorrelated.
 
 #### Correlation
-The correlation is a dimensionless quatity that can be used to compare the linear relationship between variables with different units. 
+The correlation is a dimensionless quantity (between -1 and +1) that can be used to compare the linear relationship between variables with different units. 
 
 <table class="inline">
 <td>
@@ -288,6 +288,8 @@ r =
 <div class="n">&mu;<sub>11</sub></div><div class="d">sqrt(&mu;<sub>20</sub> &mu;<sub>02</sub>)</div>
 </td>
 </table>
+
+It has a direct relation with the covariance as Cov(<u>x</u>,<u>y</u>) = r <span>&sigma;<sub>x</sub> &sigma;<sub>y</sub></span>.
 
 ## Bayesian interpretation of probability
 There are different interpretations of probability depending in which branch of statistics you are (objectivism or subjectivism). For this post and for the ones that follow we will consider the Bayessian interpretation of probability, which it is part of the subjectivist interpretation. 
